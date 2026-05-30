@@ -11,7 +11,6 @@ today=now.day
 birth=(month,today)
 birthdays = pandas.read_csv("birthdays.csv")
 bd = {(row.month,row.day):row for (index,row) in birthdays.iterrows()}
-print(bd)
 if birth in bd:
     pick = random.randint(1,3)
     with open(f"./letter_templates/letter_{pick}.txt") as file:
