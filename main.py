@@ -4,7 +4,7 @@ import pandas
 import datetime as dt
 import smtplib
 my_email =os.environ["MY_EMAIL"]
-password=os.environ["MY_PASSWORD"]
+passwords=os.environ["MY_PASSWORD"]
 now=dt.datetime.now()
 month=now.month
 today=now.day
@@ -16,9 +16,9 @@ if birth in bd:
     with open(f"./letter_templates/letter_{pick}.txt") as file:
         content=file.read()
         content=content.replace("[NAME]",bd[birth]["name"])
-    with smtplib.SMTP("smtp.gmail.com") as connection:
+    with smtplib.SMTP("smtp.gmail.com",587) as connection:
         connection.starttls()  # securing connection
-        connection.login(user=my_email, password=password)
+        connection.login(user=my_email, password=passwords)
         connection.sendmail(from_addr=my_email, to_addrs=f"{bd[birth]["email"]}", msg="Subject:Birthday Wish \n\n"
                                                                                           f"{content}")
 
