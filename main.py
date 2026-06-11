@@ -5,7 +5,7 @@ import datetime as dt
 import smtplib
 my_email =os.environ["MY_EMAIL"]
 passwords=os.environ["MY_PASSWORD"]
-now=dt.datetime.now()
+now=dt.datetime.now(ZoneInfo("Asia/Kolkata"))
 month=now.month
 today=now.day
 birth=(month,today)
