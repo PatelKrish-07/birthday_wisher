@@ -3,6 +3,7 @@ import random
 import pandas
 import datetime as dt
 import smtplib
+from zoneinfo import ZoneInfo
 my_email =os.environ["MY_EMAIL"]
 passwords=os.environ["MY_PASSWORD"]
 now=dt.datetime.now(ZoneInfo("Asia/Kolkata"))
