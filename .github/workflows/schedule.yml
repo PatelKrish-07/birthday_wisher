@@ -40,7 +40,9 @@ jobs:
           
       - name: Recreate CSV from Secret
         run: |
-          echo "${{ secrets.MY_CSV_DATA }}" | base64 --decode --ignore-garbage > data.csv
+          cat << 'EOF' > data.csv
+          ${{ secrets.MY_CSV_DATA }}
+          EOF
 
       
       - name: Run script
